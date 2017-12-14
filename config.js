@@ -136,6 +136,10 @@ module.exports = {
 		port: 35729
 	},
 
+	migrate: {
+		dry: true
+	},
+
 	modernizr: {
 		options: [
 			"setClasses",
