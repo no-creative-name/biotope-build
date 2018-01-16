@@ -155,6 +155,10 @@ module.exports = {
 		]
 	},
 
+	path: {
+		useCwdInPathJoin: true
+	},
+
 	sass: {
 		includePaths: []
 	},
