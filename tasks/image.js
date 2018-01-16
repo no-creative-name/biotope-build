@@ -37,7 +37,7 @@ gulp.task('image:component:dist', function (cb) {
 				path.join(config.global.cwd, config.global.src, 'components', '*', 'img', '**', '*.*'),
 				'!' + path.join('**', 'README.md')
 			],
-			path.join(config.global.cwd, config.global.dist, 'resources'),
+			path.join(config.global.cwd, config.global.dist, 'resources', 'components'),
 			config,
 			cb
 		);
