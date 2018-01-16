@@ -22,7 +22,7 @@ gulp.task('image:resources:dist', function (cb) {
 	}
 });
 
-gulp.task('image:component:dist', function () {
+gulp.task('image:component:dist', function (cb) {
 
 	if (config.global.tasks.image) {
 
