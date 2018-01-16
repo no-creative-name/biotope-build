@@ -1,22 +1,22 @@
 const gulp = require('gulp');
+const config = require('./../config');
 
-gulp.task('image:resources:dist', function () {
+gulp.task('image:resources:dist', function (cb) {
 
 	if (config.global.tasks.image) {
 
-		const mergeStream = require('merge-stream');
-		const config = require('./../config');
+		const pathHelper = require('./../lib/path-helpers');
 		const imagePipe = require('./../pipes/image');
 
-		return mergeStream(config.global.resources.map( function(currentResource) {
-			return imagePipe.default(
-				config.global.dist + currentResource + '/img/**/*.*',
-				gulp.dest(config.global.dist + currentResource + '/img/'),
-				config
-			);
-		}));
+		imagePipe.minifyAll(
+			pathHelper.join(config.global.dist, 'resources', 'img', '**', '*.*'),
+			pathHelper.join(config.global.dist, 'resources', 'img'),
+			config,
+			cb
+		);
 
 	} else {
+		// Show disabled message only once here (not again in component task)
 		const colors = require('colors/safe');
 		console.log(colors.yellow('image compressor disabled'));
 	}
@@ -26,18 +26,15 @@ gulp.task('image:component:dist', function () {
 
 	if (config.global.tasks.image) {
 
-		const mergeStream = require('merge-stream');
-		const config = require('./../config');
+		const pathHelper = require('./../lib/path-helpers');
 		const imagePipe = require('./../pipes/image');
 
-		return mergeStream(config.global.resources.map(function (currentResource) {
-			return mergeStream(config.global.components.map(function (currentComponent) {
-				return imagePipe.default(
-					config.global.src + currentComponent + '/*/img/**/*.*',
-					config.global.dist + currentResource + currentComponent,
-					config
-				);
-			}));
-		}));
+		imagePipe.minifyAll(
+			pathHelper.join(config.global.src, 'components', '*', 'img', '**', '*.*'),
+			pathHelper.join(config.global.dist, 'resources'),
+			config,
+			cb
+		);
+
 	}
 });

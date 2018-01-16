@@ -1,22 +1,21 @@
+const gulp = require('gulp');
+
 module.exports = {
-	default: (source, target, config) => {
+	minifyAll: (source, target, config, cb) => {
 		return () => {
-			const gulp = require('gulp');
+			const pump = require('pump');
 			const image = require('gulp-imagemin');
-			const imageOptimizers = [
-				image.gifsicle(),
-				image.jpegtran(),
-				image.optipng(),
-				image.svgo()
-			];
 
-			return gulp.src(source)
-				.pipe(image(
-					imageOptimizers,
-					config.image
-				))
-				.pipe(gulp.dest(target));
-
+			pump([
+				gulp.src(source),
+				image([
+					image.gifsicle(),
+					image.jpegtran(),
+					image.optipng(),
+					image.svgo()
+				], config.image),
+				gulp.dest(target)
+			], cb);
 		};
 	}
 };
