@@ -1,11 +1,11 @@
 const gulp = require('gulp');
-const dependencies = require('check-dependencies');
-const colors = require('colors/safe');
-const config = require('./../config');
 
-
-gulp.task('checkDependencies', function () {
+gulp.task('checkDependencies', function (cb) {
+	const config = require('./../config');
+	const dependencies = require('check-dependencies');
 	const output = dependencies.sync(config.checkDependencies);
+	const colors = require('colors/safe');
+
 	if (output.status === 1) {
 
 		if (output.error.length > 0) {
@@ -18,5 +18,5 @@ gulp.task('checkDependencies', function () {
 	}
 
 	console.log(colors.green('All installed package versions are in sync with package.json'));
-	return true;
+	cb();
 });
