@@ -1,3 +1,4 @@
+const timeInMs = Date.now();
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 const requireDir = require('require-dir');
@@ -142,3 +143,7 @@ gulp.task('serve:dist', function (callback) {
 });
 
 module.exports = gulp.tasks;
+
+const buildPackage = require('package.json');
+const colors = require('colors/safe');
+console.log(colors.green(`Build Framework v${buildPackage.version} (loaded in ${Date.now() - timeInMs}ms)`));
