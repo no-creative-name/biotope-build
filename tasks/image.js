@@ -5,12 +5,15 @@ gulp.task('image:resources:dist', function (cb) {
 
 	if (config.global.tasks.image) {
 
-		const pathHelper = require('./../lib/path-helpers');
+		const path = require('path');
 		const imagePipe = require('./../pipes/image');
 
 		imagePipe.minifyAll(
-			pathHelper.join(config.global.dist, 'resources', 'img', '**', '*.*'),
-			pathHelper.join(config.global.dist, 'resources', 'img'),
+			[
+				path.join(config.global.cwd, config.global.dist, 'resources', 'img', '**', '*.*'),
+				'!' + path.join('**', 'README.md')
+			],
+			path.join(config.global.cwd, config.global.dist, 'resources', 'img'),
 			config,
 			cb
 		);
@@ -26,12 +29,15 @@ gulp.task('image:component:dist', function (cb) {
 
 	if (config.global.tasks.image) {
 
-		const pathHelper = require('./../lib/path-helpers');
+		const path = require('path');
 		const imagePipe = require('./../pipes/image');
 
 		imagePipe.minifyAll(
-			pathHelper.join(config.global.src, 'components', '*', 'img', '**', '*.*'),
-			pathHelper.join(config.global.dist, 'resources'),
+			[
+				path.join(config.global.cwd, config.global.src, 'components', '*', 'img', '**', '*.*'),
+				'!' + path.join('**', 'README.md')
+			],
+			path.join(config.global.cwd, config.global.dist, 'resources'),
 			config,
 			cb
 		);
