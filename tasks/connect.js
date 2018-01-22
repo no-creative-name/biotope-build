@@ -19,7 +19,7 @@ gulp.task('watch:livereload', function () {
 
 gulp.task('livereload', function () {
 
-	return gulp.src(config.connect.globs)
+	return gulp.src(config.global.dev + '/**/*.html')
 		.pipe(cached('livereload', { optimizeMemory: true }))
 		// .pipe(debug({title: 'livereload:'}))
 		.pipe(connect.reload());
