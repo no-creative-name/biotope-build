@@ -131,7 +131,8 @@ gulp.task('watch:components:sass', function () {
 			runSequence(
 				['lint:components:sass'],
 				['components:sass'],
-				['resources:sass']
+				['resources:sass'],
+				['livereload']
 			);
 		});
 	}

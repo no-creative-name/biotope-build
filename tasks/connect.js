@@ -10,15 +10,11 @@ const config = require('./../config');
 
 gulp.task('watch:livereload', function () {
 
-	watch(config.connect.globs, config.watch, function() {
+	watch(config.connect.globsWatch, config.watch, function() {
 		runSequence(
 			['livereload']
 		);
 	});
-
-	return gulp.src(config.connect.globs)
-		.pipe(cached('livereload', { optimizeMemory: true }));
-
 });
 
 gulp.task('livereload', function () {

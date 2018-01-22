@@ -57,21 +57,9 @@ module.exports = {
 
 	connect: {
 		port: 9000,
-		globs: [
-			dev + '/**/*.*',
+		globsWatch: [
 			src + '/resources/js/**/*.js',
-			src + '/resources/bower_components/**/*',
 			src + '/_mock/**/*',
-			src + '/_config/**/*',
-			'!' + dev + '**/*.html',
-			'!' + dev + '**/*.css',
-			'!' + dev + '/_mock/**/*',
-			'!' + dev + '/_config/**/*',
-			'!' + dev + '/_assets/**/*',
-			'!' + dev + '/resources/js/vendor/**/*.js',
-			'!' + dev + '/resources/css/**/*.map',
-			'!' + dev + '/resources/bower_components/**/*',
-			'!' + dev + '/resources/js/handlebars.templates.js'
 		]
 	},
 
