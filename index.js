@@ -120,7 +120,6 @@ gulp.task('serve', function (callback) {
 			'watch:eslint:resources',
 			'watch:handlebars',
 			'watch:json',
-			'watch:html',
 			'watch:webpack:ts',
 			'watch:static:hb',
 			'watch:icons',

@@ -70,7 +70,8 @@ gulp.task('watch:static:hb', function () {
 
 	watch(files, config.watch, function () {
 		runSequence(
-			['static:hb']
+			['static:hb'],
+			['livereload', 'htmlhint']
 		);
 	});
 
@@ -135,7 +136,8 @@ gulp.task('watch:static:hb:indexr', function () {
 
 	watch(config.global.src + '/pages/*.hbs', config.watch, function () {
 		runSequence(
-			['static:hb:indexr','static:hb']
+			['static:hb:indexr','static:hb'],
+			['livereload', 'htmlhint']
 		);
 	});
 

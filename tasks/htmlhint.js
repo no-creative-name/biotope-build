@@ -14,13 +14,3 @@ gulp.task('htmlhint', function () {
 		.pipe(htmlhint.reporter('htmlhint-stylish'));
 
 });
-
-gulp.task('watch:html', function () {
-
-	watch([
-		config.global.dev + '/*.html'
-	], config.watch, function () {
-		runSequence('htmlhint')
-	});
-
-});
