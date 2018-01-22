@@ -64,6 +64,7 @@ module.exports = {
 			src + '/_mock/**/*',
 			src + '/_config/**/*',
 			'!' + dev + '**/*.html',
+			'!' + dev + '**/*.css',
 			'!' + dev + '/_mock/**/*',
 			'!' + dev + '/_config/**/*',
 			'!' + dev + '/_assets/**/*',

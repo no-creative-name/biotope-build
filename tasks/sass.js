@@ -99,7 +99,8 @@ gulp.task('watch:resources:sass', function () {
 			], config.watch, function() {
 				runSequence(
 					['lint:resources:sass'],
-					['resources:sass']
+					['resources:sass'],
+					['livereload']
 				);
 			});
 		});
@@ -109,7 +110,8 @@ gulp.task('watch:resources:sass', function () {
 		], config.watch, function() {
 			runSequence(
 				['lint:resources:sass'],
-				['resources:sass']
+				['resources:sass'],
+				['livereload']
 			);
 		});
 	}
