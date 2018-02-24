@@ -57,6 +57,7 @@ gulp.task('build:dev', function (callback) {
 // build templates for production
 gulp.task('build', function (callback) {
 	runSequence(
+		'nsp',
 		[
 			'clean:dist',
 			'build:dev'
