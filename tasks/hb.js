@@ -31,7 +31,7 @@ gulp.task('static:hb', function () {
     let hbsData = jsonParser.getAllJSONData(config.global.src + '/**/*.json', preData[config.global.dataObject]);
     console.timeEnd('json-parser');
 
-    console.time('hbs-parser-stream');
+
     let hbStream = hbsParser.createHbsGulpStream(
         [
             config.global.src + '/**/*.hbs',
@@ -39,7 +39,6 @@ gulp.task('static:hb', function () {
         ],
         hbsData, null, config.global.debug
     );
-    console.timeEnd('hbs-parser-stream');
 
     /**
      * reads from pages
