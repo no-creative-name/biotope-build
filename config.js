@@ -22,6 +22,7 @@ module.exports = {
 		components: '/components',
 		handlebarsHelper: '/js/handlebars.helper.js',
 		tasks: {
+			browserify: true,
 			browserSupport: true,
 			cleanCss: true,
 			cssStats: true,
@@ -43,6 +44,10 @@ module.exports = {
 	autoprefixer: {
 		//browsers: ['last 3 versions', 'last 8 Chrome versions', 'last 8 Firefox versions' , 'Firefox ESR', 'ie 9', 'last 2 iOS versions', 'Android 4']
 		browsers: ['last 1 version']
+	},
+
+	browserify: {
+
 	},
 
 	browserSupport: {

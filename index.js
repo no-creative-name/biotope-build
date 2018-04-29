@@ -39,7 +39,8 @@ gulp.task('build:dev', function (callback) {
 		[
 			'resources:sass',
 			'components:sass',
-			'webpack:ts',
+			'browserify',
+			// 'webpack:ts',
 			'copy:dev:components:js'
 		],
 		[
